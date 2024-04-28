@@ -1,10 +1,4 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
+.container1 {
     display: flex;
     align-items: flex-start;
 }
@@ -26,6 +20,14 @@ aside {
     position: static;
 }
 
-footer {
-    margin-top: 80%;
+#p {
+    text-align: center;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: purple;
 }
