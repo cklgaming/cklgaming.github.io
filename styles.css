@@ -1,3 +1,8 @@
+html {
+    background-color: black;
+    color: hotpink;
+}
+
 .container1 {
     display: flex;
     align-items: flex-start;
@@ -15,7 +20,7 @@ header {
 }
 
 aside {
-    background-color: grey;
+    background-color: rgb(45, 46, 46);
     padding-bottom: 5px;
     position: static;
 }
@@ -24,8 +29,8 @@ aside {
     text-align: center;
 }
 
-a:visited {
-    color: blue;
+a {
+    color: lightblue;
 }
 
 a:hover {
