@@ -11,15 +11,12 @@ const __dirname = path.dirname(__filename);
 // 
 let pages = [];
 fs.readdirSync("./public/").forEach(file => {
-                pages.push(file);
+    pages.push(file);
+});
+fs.readdirSync("./public/writing/").forEach(file => {
+    pages.push(file);
 });
 console.log(pages);
-
-let writing = [];
-fs.readdirSync("./public/writing/").forEach(file => {
-    writing.push(file);
-});
-console.log(writing);
 
 // define url and path arrays
 // urls holds the file the way it should show up in the url
