@@ -37,19 +37,14 @@ const server = http.createServer(async(req, res) => {
     try {
         if (req.method === 'GET') {
             let filePath;
-            // figure out how to write 'for' loop in order to iterate through all pages
-            for (_ in urls) {
-                if (req.url === '/') {
+            if (req.url === '/') {
                     filePath = path.join(__dirname, 'public', 'index.html');
                     console.log(filePath);
                 }
-                else if (req.url === urls[_]) {
+            // figure out how to write 'for' loop in order to iterate through all pages
+            for (_ in urls) {
+                if (req.url === urls[_]) {
                     filePath = path.join(__dirname, 'public', paths[_]);
-                    console.log(filePath);
-                }
-                // put writing pages in the same array as regular paths?
-                else if (req.url === writing[_]) {
-                    filePath = path.join(__dirname, 'public/writing', paths[_]);
                     console.log(filePath);
                 }
             }            
