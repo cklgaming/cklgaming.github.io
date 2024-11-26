@@ -35,23 +35,39 @@ console.log(paths);
 const server = http.createServer(async(req, res) => {
     console.log(req.url, req.method);
     try {
+        // if (req.method === 'GET') {
+        //     
+        // }
         if (req.method === 'GET') {
             let filePath;
-            if (req.url === '/') {
-                    filePath = path.join(__dirname, 'public', 'index.html');
+            if (req.url === '/' || req.url === '/index.html') {
+                    filePath = path.join(__dirname, 'index.html');
                     console.log(filePath);
                 }
             // figure out how to write 'for' loop in order to iterate through all pages
-            for (_ in urls) {
-                if (req.url === urls[_]) {
-                    filePath = path.join(__dirname, 'public', paths[_]);
-                    console.log(filePath);
-                }
-            }            
+            else {
+                for (_ in urls) {
+                    console.log(_);
+                    if (req.url === urls[_]) {
+                        filePath = path.join(__dirname, 'public', paths[_]);
+                        console.log(filePath);
+                    }
+                    else {
+                        console.log('error pnf');
+                        throw new Error('Page Not Found');
+                    }
+                }            
+            }
+
+            const data = await fs.readFile(filePath);
+            res.setHeader('Content-Type', 'text/html');
+            res.write(data);
+            res.end();
            // Finish listing this
             // Use `for` loop to get all files, list them here instead of hard-coding them? 
             // How to make this work in .html files?
-       } else {
+       } 
+        else {
             res.writeHead(500, { 'Content-Type': 'text/plain' });
             res.end('Invalid Credentials');
         }
